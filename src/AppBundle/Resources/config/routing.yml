@@ -1,0 +1,4 @@
+login:
+    path:  /login
+    defaults: { _controller: AppBundle:Login/Login:index }
+

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "antd": "^2.13.1",
+    "webpack": "^3.5.6"
+  }
+}
