@@ -10,10 +10,6 @@ class LoginController extends Controller
 {
     public function indexAction(Request $request)
     {
-        var_dump(123123);
-        exit;
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render('login/index.html.twig');
     }
 }
