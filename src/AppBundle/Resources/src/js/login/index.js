@@ -1,1 +1,1 @@
-alert(12313);
+alert('hello word!');
