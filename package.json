@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --port 3031 --hot-only --inline --color"
+    "start": "webpack-dev-server --color"
   },
   "name": "tianshengjie",
   "description": "blog ====",
