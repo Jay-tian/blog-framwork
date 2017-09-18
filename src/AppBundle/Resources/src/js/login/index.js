@@ -1,2 +1,2 @@
 require('./../../less/layout.less');
-alert('hello word!');
+alert('hello word!13');
