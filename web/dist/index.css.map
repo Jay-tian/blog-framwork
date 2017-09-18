@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/AppBundle/Resources/src/less/layout.less"],"names":[],"mappings":";AAAA;EACI;CACH","file":"index.css","sourcesContent":["body{\n    background: red;\n}\n\n\n// WEBPACK FOOTER //\n// ./src/AppBundle/Resources/src/less/layout.less"],"sourceRoot":""}

@@ -1,2 +1,2 @@
-require('./../../less/layout.less');
+import './../../less/layout.less';
 alert('hello word!13');

@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/8.2.1/bin/node /usr/local/bin/yarn add less --dev
+  /usr/local/Cellar/node/8.2.1/bin/node /usr/local/bin/yarn add less-loader --dev
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -4808,4 +4808,4 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/private/var/www/blog/node_modules/.bin/acorn'
+  Error: EACCES: permission denied, mkdir '/private/var/www/blog/node_modules/bonjour/node_modules/array-flatten'

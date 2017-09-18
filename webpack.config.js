@@ -20,17 +20,34 @@ module.exports = {
         hot: true,
         stats: 'normal',
     },
-    module: {
-        rules: [
-            {
-                test: /\.less$/,
-                use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: "less-loader!css-loader"
-                })
-            }
-        ]
-    },
+    // module: {
+    //     rules: [
+    //         {
+    //             test: /\.less$/,
+    //             use: ExtractTextPlugin.extract({
+    //             fallback: "style-loader",
+    //             use: "less-loader!css-loader"
+    //             })
+    //         }
+    //     ]
+    // },
+module: {
+    loaders: [
+      //.css 文件使用 style-loader 和 css-loader 来处理
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract(
+            'css-loader?sourceMap!' +
+            'less-loader?sourceMap'
+        )
+      },
+
+      {
+        test: /\.js$/, 
+        loader: 'babel-loader'
+      }
+    ]
+  },
     plugins:[
         new webpack.BannerPlugin('by tsj'),
         new webpack.HotModuleReplacementPlugin(),
