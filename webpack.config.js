@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     devtool: 'source-map',
     entry: {
-       'index': '/private/var/www/blog/src/AppBundle/Resources/src/js/login/index.js'
+       'index': '/private/var/www/blog/src/AppBundle/Resources/src/js/main.js'
     },
     output: {
         path: __dirname + "/web/dist",
@@ -20,34 +20,39 @@ module.exports = {
         hot: true,
         stats: 'normal',
     },
-    // module: {
-    //     rules: [
-    //         {
-    //             test: /\.less$/,
-    //             use: ExtractTextPlugin.extract({
-    //             fallback: "style-loader",
-    //             use: "less-loader!css-loader"
-    //             })
-    //         }
-    //     ]
-    // },
-module: {
-    loaders: [
-      //.css 文件使用 style-loader 和 css-loader 来处理
-      {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract(
-            'css-loader?sourceMap!' +
-            'less-loader?sourceMap'
-        )
-      },
-
-      {
-        test: /\.js$/, 
-        loader: 'babel-loader'
-      }
-    ]
-  },
+    module: {
+        loaders: [
+        //.css 文件使用 style-loader 和 css-loader 来处理
+            // {
+            //     test: /\.css$/,
+            //     loader: ExtractTextPlugin.extract(
+            //         'style-loader?sourceMap!' +
+            //         'css-loader?sourceMap' 
+            //     )
+            // },
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract(
+                    'css-loader?sourceMap!' +
+                    'less-loader?sourceMap' 
+                )
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader',
+                query: {
+                cacheDirectory: true,
+                presets: ['stage-0', 'es2015'],
+                plugins: ['transform-runtime']
+                }
+            },
+            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+            { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
+        ]
+    },
     plugins:[
         new webpack.BannerPlugin('by tsj'),
         new webpack.HotModuleReplacementPlugin(),
