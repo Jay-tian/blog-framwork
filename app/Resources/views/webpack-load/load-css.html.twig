@@ -1,0 +1,3 @@
+{% for path in css() %}
+    <link href="{{ asset('dist/' ~ path) }}" rel="stylesheet" />
+{% endfor %}

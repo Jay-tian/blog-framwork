@@ -10,22 +10,17 @@
         <meta charset="UTF-8" />
         <title>
             {% block title %}
-                田胜杰的个人博客-记录技术-分享生活 
+                个人博客-记录技术-分享生活 
             {% endblock %}
         </title>
-
-        {% do script(['libs/perfect-scrollbar.js','libs/es-ckeditor/ckeditor.js','app/js/task/index.js']) %}
+        {% do script(['main.js']) %}
+        {% do css(['main.css']) %}
         {% include 'webpack-load/load-css.html.twig' %}
     </head>
     <body>
-    
-    </body>
-    
-    <body>
         {% block body %}
         {% endblock %}
+
+        {% include 'webpack-load/load-js.html.twig' %}
     </body>
-    {% for path in script() %}
-        {{dump(path)}}
-    {% endfor %}
 </html>

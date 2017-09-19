@@ -1,0 +1,3 @@
+{% for path in script()  %}
+    <script src="{{ asset('dist/' ~ path) }}"></script>
+{% endfor %}
