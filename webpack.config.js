@@ -1,14 +1,24 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const glob = require('glob');
+
+const fileRootPath = './src/AppBundle/Resources/static-src/js/';
+let files = glob.sync(fileRootPath + '**/index.js');
+
+let entries = {};
+files.forEach(function(f){
+   var name = f.replace(fileRootPath, '');
+   entries[name] = f;
+});
+
+// config.entry = Object.assign({}, config.entry, newEntries);
 
 module.exports = {
     devtool: 'source-map',
-    entry: {
-       'index': '/private/var/www/blog/src/AppBundle/Resources/src/js/main.js'
-    },
+    entry: entries,
     output: {
         path: __dirname + "/web/dist",
-        filename: "index.js",
+        filename: "[name].js",
         publicPath: "http://localhost:3032/dist",
     },
 
