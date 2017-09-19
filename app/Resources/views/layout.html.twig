@@ -12,14 +12,20 @@
             {% block title %}
                 田胜杰的个人博客-记录技术-分享生活 
             {% endblock %}
-        </title>        
+        </title>
+
+        {% do script(['libs/perfect-scrollbar.js','libs/es-ckeditor/ckeditor.js','app/js/task/index.js']) %}
+        {% include 'webpack-load/load-css.html.twig' %}
     </head>
     <body>
-        asd
+    
     </body>
     
     <body>
         {% block body %}
         {% endblock %}
     </body>
+    {% for path in script() %}
+        {{dump(path)}}
+    {% endfor %}
 </html>

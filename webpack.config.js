@@ -11,17 +11,16 @@ files.forEach(function(f){
    entries[name] = f;
 });
 
-// config.entry = Object.assign({}, config.entry, newEntries);
+entries = Object.assign({}, {'main': './src/AppBundle/Resources/static-src/js/main.js'}, entries);
 
 module.exports = {
     devtool: 'source-map',
     entry: entries,
     output: {
-        path: __dirname + "/web/dist",
+        path: __dirname + "/web/dist", 
         filename: "[name].js",
         publicPath: "http://localhost:3032/dist",
     },
-
     devServer: {
         contentBase: __dirname + "/dist",
         port: 3032,
@@ -32,14 +31,6 @@ module.exports = {
     },
     module: {
         loaders: [
-        //.css 文件使用 style-loader 和 css-loader 来处理
-            // {
-            //     test: /\.css$/,
-            //     loader: ExtractTextPlugin.extract(
-            //         'style-loader?sourceMap!' +
-            //         'css-loader?sourceMap' 
-            //     )
-            // },
             {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract(
@@ -52,9 +43,9 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel-loader',
                 query: {
-                cacheDirectory: true,
-                presets: ['stage-0', 'es2015'],
-                plugins: ['transform-runtime']
+                    cacheDirectory: true,
+                    presets: ['stage-0', 'es2015'],
+                    plugins: ['transform-runtime']
                 }
             },
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
@@ -66,9 +57,8 @@ module.exports = {
     plugins:[
         new webpack.BannerPlugin('by tsj'),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin({
-            filename: '[name].css',
-            allChunks: true,
-        }),
+        new ExtractTextPlugin('[name].css', {
+            allChunks: true
+        })
     ],
 }
