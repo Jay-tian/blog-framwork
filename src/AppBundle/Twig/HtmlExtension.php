@@ -1,7 +1,7 @@
 <?php
 namespace AppBundle\Twig;
 
-class AppExtension extends \Twig_Extension
+class HtmlExtension extends \Twig_Extension
 {
     protected $scripts = array();
 
@@ -9,16 +9,8 @@ class AppExtension extends \Twig_Extension
 
     public function __construct()
     {
-        $this->scripts = array();
-        $this->csses = array();
-    }
-
-
-    public function getFilters()
-    {
-        return array(
-            new \Twig_SimpleFilter('price', array($this, 'priceFilter')),
-        );
+        $this->scripts = new \SplPriorityQueue();
+        $this->csses = new \SplPriorityQueue();
     }
 
     public function getFunctions()
@@ -29,15 +21,7 @@ class AppExtension extends \Twig_Extension
         );
     }
 
-    public function priceFilter($number, $decimals = 0, $decPoint = '.', $thousandsSep = ',')
-    {
-        $price = number_format($number, $decimals, $decPoint, $thousandsSep);
-        $price = '$'.$price;
-
-        return $price;
-    }
-
-    public function script($paths = null)
+    public function script($paths = null, $priority = 0)
     {
         if (empty($paths)) {
             return $this->scripts;
@@ -48,11 +32,11 @@ class AppExtension extends \Twig_Extension
         }
 
         foreach ($paths as $path) {
-            $this->scripts[] = $path;
+            $this->scripts->insert($path, $priority);
         }
     }
 
-    public function css($paths = null)
+    public function css($paths = null, $priority = 0)
     {
         if (empty($paths)) {
             return $this->csses;
@@ -63,7 +47,7 @@ class AppExtension extends \Twig_Extension
         }
 
         foreach ($paths as $path) {
-            $this->csses[] = $path;
+            $this->csses->insert($path, $priority);
         }
     }
 }
