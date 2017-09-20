@@ -8,6 +8,8 @@ let files = glob.sync(fileRootPath + '**/index.js');
 let entries = {};
 files.forEach(function(f){
    var name = f.replace(fileRootPath, '');
+   var name = name.replace('.js', '');
+   console.log(name);
    entries[name] = f;
 });
 
