@@ -1,6 +1,11 @@
+import express from 'express';
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const glob = require('glob');
+
+import bastConfig from './base.js';
+console.log(bastConfig);
+console.log(13123);
 
 const fileRootPath = './src/AppBundle/Resources/static-src/js/';
 let files = glob.sync(fileRootPath + '**/index.js');
