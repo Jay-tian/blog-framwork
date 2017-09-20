@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "antd": "^2.13.1",
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "particles.js": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

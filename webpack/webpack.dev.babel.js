@@ -1,8 +1,3 @@
-import express from 'express';
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const glob = require('glob');
-
 import bastConfig from './base.js';
 
 module.exports = {

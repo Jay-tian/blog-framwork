@@ -1,5 +1,20 @@
 {% extends 'layout.html.twig' %}
 {% do script(['login/index.js']) %}
+{% do css(['login/index.css']) %}
 
 {% block body %}
+    <div class="login">
+        <div id="particles-js" class="particles"></div>
+        <div class="login-main">
+            <h1 class="text-center">
+                记录生活，发现美
+            </h1>
+            <form>
+                <input placeholder="用户名" type="text"／>
+                <input placeholder="密码"  type="password"／>
+                <input type="submit" value="提交">
+            </form>
+        </div>
+
+    </div>
 {% endblock %}

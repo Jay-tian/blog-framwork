@@ -7,6 +7,8 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
         <meta name="keywords" content="{% block keywords %}前端技术 webpack php symfony jquery{% endblock %}">
         <meta name="description" content="{% block description %}田胜杰的个人博客-记录技术-分享生活{% endblock %}">
+        <link rel="icon" href="/tsj.jpg" type="image/x-icon" />
+        <link rel="shortcut icon" href="/tsj.jpg" type="image/x-icon" />
         <meta charset="UTF-8" />
         <title>
             {% block title %}
@@ -17,7 +19,7 @@
         {% do css(['main.css']) %}
         {% include 'webpack-load/load-css.html.twig' %}
     </head>
-    <body>
+    <body class="{{ bodyClass|default() }}">
         {% block body %}
         {% endblock %}
         {% include 'webpack-load/load-js.html.twig' %}
