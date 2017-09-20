@@ -1,21 +1,31 @@
-const glob = require('glob');
-const root = __dirname + '/../';
+import loader from './loader.js';
+import plugin from './plugin.js';
 
-const fileRootPath = root + 'src/AppBundle/Resources/static-src/js/';
+const glob = require('glob');
+const path = require('path')
+
+const root = path.resolve(__dirname, '..');
+const fileRootPath = root + '/src/AppBundle/Resources/static-src/js/';
 let files = glob.sync(fileRootPath + '**/index.js');
 
 let entries = {};
 files.forEach(function(f){
-   var name = f.replace(fileRootPath, '');
-   var name = name.replace('.js', '');
-   console.log(name);
+   var name = f.replace(fileRootPath, '').replace('.js', '');
    entries[name] = f;
 });
 entries = Object.assign({}, {'main': fileRootPath + 'main.js'}, entries);
 
+
 let config = {
     rootPath:root,
-    entries: entries
+    entries: entries,
+    output: {
+        path: root + "/web/dist", 
+        filename: "[name].js",
+        publicPath: "http://localhost:3032/dist",
+    },
+    loaders: loader,
+    plugins: plugin,
 }
 
 export default config;
