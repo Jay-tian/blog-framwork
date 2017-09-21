@@ -2,6 +2,10 @@
 {% do script(['login/index.js']) %}
 {% do css(['login/index.css']) %}
 
+{% block title %}
+    个人博客-登陆
+{% endblock %}
+
 {% block body %}
     <div class="login">
         <div id="particles-js" class="particles"></div>
@@ -10,9 +14,9 @@
                 记录生活，发现美
             </h1>
             <form>
-                <input placeholder="用户名" type="text"／>
-                <input placeholder="密码"  type="password"／>
-                <input type="submit" value="提交">
+                <input class="form-control" placeholder="用户名" type="text"／>
+                <input class="form-control" placeholder="密码"  type="password"／>
+                <input class="form-submit" type="submit" value="提交">
             </form>
         </div>
 
