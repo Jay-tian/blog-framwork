@@ -3,6 +3,11 @@
     "license": "proprietary",
     "type": "project",
     "autoload": {
+        "psr-0": {
+            "": [
+                "src/"
+            ]
+        },
         "psr-4": {
             "AppBundle\\": "src/AppBundle"
         },

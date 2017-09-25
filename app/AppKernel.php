@@ -32,6 +32,11 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
+    private function initBiz()
+    {
+        
+    }
+
     public function getRootDir()
     {
         return __DIR__;

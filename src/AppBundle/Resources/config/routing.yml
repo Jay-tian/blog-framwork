@@ -2,6 +2,12 @@ login:
     path:  /login
     defaults: { _controller: AppBundle:Login/Login:index }
 
-login:
-    path:  /
+index:
+    path:  /index
     defaults: { _controller: AppBundle:Login/Login:index }
+
+login_check:
+    path:  /login_check
+
+logout:
+    path:  /logout
