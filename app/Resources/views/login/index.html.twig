@@ -16,18 +16,18 @@
             <form id="login" action="{{ path('login_check') }}" method="post">
                 <input class="form-control" placeholder="用户名"  name="_username" type="text"／>
                 <input class="form-control" placeholder="密码"  type="password" name="_password"／>
-                <div class="btn-group">
+                <div class="btn-group clearfix">
                     <button class="btn-primary" type="submit">登陆</button>
                     <button class="btn-primary js-register" type="button">注册</button>
                 </div>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             </form>
 
-            <form id="register" action="{{ path('login_check') }}" method="post" class="register-hide">
+            <form id="register" action="{{ path('register') }}" method="post" class="register-hide">
                 <input class="form-control" placeholder="用户名"  name="_username" type="text"／>
                 <input class="form-control" placeholder="密码"  type="password" name="_password"／>
                 <input class="form-control" placeholder="确认密码"  type="password" name="_password"／>
-                <div class="btn-group">
+                <div class="btn-group clearfix">
                     <button class="btn-primary" type="submit">注册</button>
                     <button class="btn-primary js-register" type="button">登陆</button>
                 </div>

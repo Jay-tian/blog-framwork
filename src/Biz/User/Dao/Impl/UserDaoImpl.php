@@ -1,9 +1,24 @@
 <?php
 
-namespace Biz\User\Dao;
+namespace Biz\User\Dao\Impl;
 
 use Codeages\Biz\Framework\Dao\GeneralDaoInterface;
 
-interface UserDao extends GeneralDaoInterface
+class UserDaoImpl extends \Codeages\Biz\Framework\Dao\GeneralDaoImpl
 {
+    protected $table = 'user';
+
+    public function declares()
+    {
+        return array(
+            'serializes' => array(
+            ),
+            'orderbys' => array(
+                'id'
+            ),
+            'timestamps' => array('createdTime', 'updatedTime'),
+            'conditions' => array()
+        );
+    }
 }
+

@@ -2,9 +2,16 @@
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Codeages\Biz\Framework\Provider\DoctrineServiceProvider;
 
 class AppKernel extends Kernel
 {
+    public function boot()
+    {
+        parent::boot();
+        $this->initializeBiz();
+    }
+
     public function registerBundles()
     {
         $bundles = [
@@ -30,6 +37,12 @@ class AppKernel extends Kernel
         }
 
         return $bundles;
+    }
+
+    protected function initializeBiz()
+    {
+        $biz = $this->getContainer()->get('biz');
+        $biz->register(new DoctrineServiceProvider());
     }
 
     public function getRootDir()

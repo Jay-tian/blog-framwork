@@ -77,3 +77,11 @@ ol ol,ol ul,ul ol,ul ul {
     padding-right: 10px
 }
 
+.clearfix{
+   &:after{
+        clear: both;
+        box-sizing: border-box;
+        content: " ";
+        display: table;
+   } 
+}
