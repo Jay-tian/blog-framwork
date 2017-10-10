@@ -58,7 +58,8 @@ class User implements UserInterface, \Serializable
 
     public function getPassword()
     {
-        return $this->password;
+        //return $this->password;
+        return '2304912adksf';
     }
 
     public function getRoles()

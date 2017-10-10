@@ -1,4 +1,12 @@
 import bastConfig from './base.js';
+const webpack = require('webpack');
+let plugins =  bastConfig.plugins;
+
+plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: {
+    warnings: false
+    }
+}));
 
 module.exports = {
     entry: bastConfig.entries,
@@ -6,5 +14,8 @@ module.exports = {
     module: {
         loaders: bastConfig.loaders
     },
-    plugins: bastConfig.plugins
+    // externals:{
+    //     'jquery':'window.$'
+    // },
+    plugins: plugins
 }

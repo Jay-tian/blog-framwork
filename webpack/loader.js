@@ -1,5 +1,4 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 let loader = [
     {
         test: /\.less$/,

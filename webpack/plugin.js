@@ -9,9 +9,9 @@ let plugin = [
         allChunks: true
     },
     new webpack.optimize.CommonsChunkPlugin({
-        name:"common",
-        minChunks:2
-    }),   
+        name: "common",
+        minChunks: 2
+    })
 )]
 
 export default plugin;
