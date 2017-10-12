@@ -8,10 +8,7 @@ let plugin = [
     new ExtractTextPlugin('[name].css', {
         allChunks: true
     },
-    new webpack.optimize.CommonsChunkPlugin({
-        name: "common",
-        minChunks: 2
-    })
+    new webpack.optimize.CommonsChunkPlugin('common.js')  
 )]
 
 export default plugin;

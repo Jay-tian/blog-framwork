@@ -1,0 +1,7 @@
+{% macro flash_messages() %}
+  {% for type, flashMessages in app.session.flashbag.all() %}
+    {% for flashMessage in flashMessages %}
+        <div class="message flash-message message-{{ type }}">{{ flashMessage|raw }}</div>
+    {% endfor %}
+  {% endfor %}
+{% endmacro %}

@@ -15,7 +15,7 @@
                 个人博客-记录技术-分享生活 
             {% endblock %}
         </title>
-        {% do script(['main.js'], 10000) %}        
+        {% do script(['main.js','common.js'], 10000) %}        
         {% do css(['main.css']) %}
         {% include 'webpack-load/load-css.html.twig' %}
     </head>

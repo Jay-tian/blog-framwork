@@ -1,19 +1,20 @@
 {% extends 'layout.html.twig' %}
 {% do script(['login/index.js']) %}
 {% do css(['login/index.css']) %}
-
+{% import "macro.html.twig" as macroTool %}
 {% block title %}
     个人博客-登陆-注册
 {% endblock %}
 
 {% block body %}
+    {# {{ macroTool.flash_messages }} #}
     <div class="login">
         <div id="particles-js" class="particles"></div>
         <div class="login-main">
             <h1 class="text-center">
                 记录生活，发现美
             </h1>
-            <form id="login" action="{{ path('login_check') }}" method="post">
+            <form id="login" action="{{ path('login_check') }}" method="post" class="{% if type|default('login') == 'register' %}register-hide{% endif %}">
                 <input class="form-control" placeholder="用户名"  name="_username" type="text"／>
                 <input class="form-control" placeholder="密码"  type="password" name="_password"／>
                 <div class="btn-group clearfix">
@@ -22,11 +23,11 @@
                 </div>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             </form>
-
-            <form id="register" action="{{ path('register') }}" method="post" class="register-hide">
-                <input class="form-control" placeholder="用户名"  name="_username" type="text"／>
-                <input class="form-control" placeholder="密码"  type="password" name="_password"／>
-                <input class="form-control" placeholder="确认密码"  type="password" name="_password"／>
+            <form id="register" action="{{ path('register') }}" method="post" class="{% if type|default('login') == 'login' %}register-hide{% endif %}">
+                <input class="form-control" placeholder="用户名"  name="username" type="text"／>
+                <input class="form-control" placeholder="邮箱"  name="email" type="text"／>
+                <input class="form-control" placeholder="密码"  type="password" name="password"／>
+                <input class="form-control" placeholder="确认密码"  type="password" name="comfirmPassword"／>
                 <div class="btn-group clearfix">
                     <button class="btn-primary" type="submit">注册</button>
                     <button class="btn-primary js-register" type="button">登陆</button>

@@ -4,18 +4,24 @@ namespace AppBundle\Controller\Register;
 
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Controller\BaseController;
+use Codeages\Biz\Framework\Service\Exception\ServiceException;
 
 class RegisterController extends BaseController
 {
     public function RegisterAction(Request $request)
     {
-        $user = array(
-            'username' => 'asd',
-            'email' => '806338233@qq.com',
-            'password' => '123'
-        );
+        if('POST' === $request->getMethod()){
+            try {
+                $this->getUserService()->register($request->request->all());
+            } catch (ServiceException $se) {
+                $this->setFlashMessage('danger', $se->getMessage());
+                return $this->redirect('register');
+            }
+        }
 
-        $this->getUserService()->register($user);
+        return $this->render('login/index.html.twig', array(
+            'type' => 'register'
+        ));   
     }
 
     private function getUserService()

@@ -8,10 +8,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BaseController extends Controller
 {
+    protected function setFlashMessage($level, $message)
+    {
+        $this->get('session')->getFlashBag()->add($level, $message);
+    }
+
     protected function getBiz()
     {
         return $this->get('biz');
     }
-
 }
 

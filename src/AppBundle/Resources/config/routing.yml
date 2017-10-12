@@ -15,4 +15,3 @@ logout:
 register: 
     path:  /register
     defaults: { _controller: AppBundle:Register/Register:register }
-    methods: post
