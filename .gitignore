@@ -16,3 +16,5 @@
 /vendor/
 /web/bundles/
 /node_modules
+/web/dist/dev.lock
+

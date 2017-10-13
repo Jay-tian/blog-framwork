@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface, \Serializable
 {
+    private $data;
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -37,16 +38,22 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
-    public function __construct()
+    public function __construct($data)
     {
         $this->isActive = true;
+        $this->data = $data;
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
     }
 
+    public function __get($name)
+    {
+        return empty($this->data[$name]) ? '' : $this->data[$name];
+    }
+
     public function getUsername()
     {
-        return $this->username;
+        return $this->__get('username');
     }
 
     public function getSalt()
@@ -58,8 +65,8 @@ class User implements UserInterface, \Serializable
 
     public function getPassword()
     {
-        //return $this->password;
-        return '2304912adksf';
+        return '$2y$10$g0HMLi5RzXvq5QAWPkubY.MqfLg5YZfmDdbAYlAZ8MPvS61ZvCK2a';
+        return $this->data['password'];
     }
 
     public function getRoles()
@@ -69,6 +76,7 @@ class User implements UserInterface, \Serializable
 
     public function eraseCredentials()
     {
+
     }
 
     /** @see \Serializable::serialize() */

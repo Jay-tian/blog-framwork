@@ -22,9 +22,9 @@ class UserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {
-        $user = new User();
-
-        return $user;
+        $user = $this->getUserService()->getUserByUserName($username);
+        
+        return new User($user);
     }
 
     public function refreshUser(UserInterface $user)
