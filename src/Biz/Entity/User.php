@@ -65,7 +65,6 @@ class User implements UserInterface, \Serializable
 
     public function getPassword()
     {
-        return '$2y$10$g0HMLi5RzXvq5QAWPkubY.MqfLg5YZfmDdbAYlAZ8MPvS61ZvCK2a';
         return $this->data['password'];
     }
 
@@ -82,24 +81,12 @@ class User implements UserInterface, \Serializable
     /** @see \Serializable::serialize() */
     public function serialize()
     {
-        return serialize(array(
-            $this->id,
-            $this->username,
-            $this->password,
-            // see section on salt below
-            // $this->salt,
-        ));
+        return serialize($this->data);
     }
 
     /** @see \Serializable::unserialize() */
     public function unserialize($serialized)
     {
-        list (
-            $this->id,
-            $this->username,
-            $this->password,
-            // see section on salt below
-            // $this->salt
-        ) = unserialize($serialized);
+        $this->data = unserialize($serialized);
     }
 }

@@ -22,19 +22,24 @@ class UserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {
-        $user = $this->getUserService()->getUserByUserName($username);
+        $user = $this->getUserService()->getUserByUserName($username);  
+        $user['roles'] =  array('ROLE_USER');
         
         return new User($user);
     }
 
     public function refreshUser(UserInterface $user)
     {
+        if (!$user instanceof User) {
+            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
+        }
 
+       return $this->loadUserByUsername($user->getUsername());
     }
 
     public function supportsClass($class)
     {
-
+       // return $class === '\Biz\Entity\User';
     }
 
     /**
