@@ -42,8 +42,6 @@ class User implements UserInterface, \Serializable
     {
         $this->isActive = true;
         $this->data = $data;
-        // may not be needed, see section on salt below
-        // $this->salt = md5(uniqid('', true));
     }
 
     public function __get($name)
@@ -58,8 +56,6 @@ class User implements UserInterface, \Serializable
 
     public function getSalt()
     {
-        // you *may* need a real salt depending on your encoder
-        // see section on salt below
         return null;
     }
 

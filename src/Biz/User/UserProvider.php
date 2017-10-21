@@ -39,7 +39,7 @@ class UserProvider implements UserProviderInterface
 
     public function supportsClass($class)
     {
-       // return $class === '\Biz\Entity\User';
+       
     }
 
     /**

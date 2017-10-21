@@ -4,7 +4,7 @@ login:
 
 index:
     path:  /index
-    defaults: { _controller: AppBundle:Login/Login:index }
+    defaults: { _controller: AppBundle:Default:index }
 
 login_check:
     path:  /login_check
