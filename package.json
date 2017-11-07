@@ -2,6 +2,7 @@
   "dependencies": {
     "antd": "^2.13.1",
     "express": "^4.15.4",
+    "jquery-validation": "^1.17.0",
     "particles.js": "^2.0.0"
   },
   "devDependencies": {

@@ -1,0 +1,25 @@
+<div class="site-bar">
+    <div class="container clearfix">
+        <ul class="pull-left">
+            <li>
+                <a>logo</a>
+            </li>
+            <li>
+                <a>随记</a>
+            </li>
+        </ul>
+        <ul class="pull-right">
+            <li>
+                <form action="{{ path('search') }}">
+                    <input class="search" placeholder="搜索"></input>
+                </form>
+            </li>
+            <li>
+                <a href="{{ path('login') }}">登陆</a>
+            </li>
+            <li>
+                <a href="{{ path('register') }}">注册</a>
+            </li>
+        </ul>
+    </div>
+</div>

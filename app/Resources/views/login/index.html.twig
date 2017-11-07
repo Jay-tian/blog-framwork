@@ -10,31 +10,58 @@
     {# {{ macroTool.flash_messages }} #}
     <div class="login">
         <div id="particles-js" class="particles"></div>
-        <div class="login-main">
-            <h1 class="text-center">
+        
+        <div class="login-main {% if type|default('login') == 'register' %}register-hide{% endif %}">
+            {# <h1 class="text-center">
                 记录生活，发现美
-            </h1>
-            <form id="login" action="{{ path('login_check') }}" method="post" class="{% if type|default('login') == 'register' %}register-hide{% endif %}">
+            </h1> #}
+            <form id="login" action="{{ path('login_check') }}" method="post" class="">
                 <input class="form-control" placeholder="用户名"  name="_username" type="text"／>
                 <input class="form-control" placeholder="密码"  type="password" name="_password"／>
                 <div class="btn-group clearfix">
-                    <button class="btn-primary" type="submit">登陆</button>
+                    <button class="btn-primary btn-main" type="submit">登陆</button>
                     <button class="btn-primary js-register" type="button">注册</button>
                 </div>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             </form>
-            <form id="register" action="{{ path('register') }}" method="post" class="{% if type|default('login') == 'login' %}register-hide{% endif %}">
-                <input class="form-control" placeholder="用户名"  name="username" type="text"／>
+
+        </div>
+
+        <div class="register-main  {% if type|default('login') == 'login' %}register-hide{% endif %}">
+            {# <h1 class="text-center">
+                
+            </h1> #}
+            <form id="register" action="{{ path('register') }}" method="post" class="register">
+                <div class="form-control">
+                    <input class="" placeholder="用户名"  name="username" type="text"／>
+                </div>
+                <div class="form-control">
+
+                </div>
+                <div class="form-control">
+
+                </div>
+                <div class="form-control">
+
+                </div>
+                <div class="form-control">
+
+                </div>
+                <div class="form-control">
+                        
+                </div>
                 <input class="form-control" placeholder="邮箱"  name="email" type="text"／>
                 <input class="form-control" placeholder="密码"  type="password" name="password"／>
                 <input class="form-control" placeholder="确认密码"  type="password" name="comfirmPassword"／>
+                <input class="form-control" placeholder="验证码"  type="text" name="code"／>yanzhnegma
                 <div class="btn-group clearfix">
-                    <button class="btn-primary" type="submit">注册</button>
-                    <button class="btn-primary js-register" type="button">登陆</button>
+                    <button class="btn-primary btn-main" type="submit">注册</button>
+                    <button class="btn-primary js-login" type="button">登陆</button>
                 </div>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             </form>
         </div>
+
 
     </div>
 {% endblock %}

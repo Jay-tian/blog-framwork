@@ -1,11 +1,27 @@
 {% extends 'layout.html.twig' %}
+{% do script(['index/index.js']) %}
+{% do css(['index/index.css']) %}
 {% import "macro.html.twig" as macroTool %}
 {% block title %}
     个人博客-首页
 {% endblock %}
 
 {% block body %}
-    <div>
-        首页
+    {% include 'default/header.html.twig' %}
+    <div class="article-main container">
+        <div class="title">
+            <h1>
+                第一篇文章
+            </h1>
+        </div>
+        <div class="author">
+            作者
+        </div>
+        <div class="content">
+            内容
+        </div>  
+        <div>
+            点赞，喜欢，评论，
+        </div>     
     </div>
 {% endblock %}

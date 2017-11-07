@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/8.2.1/bin/node /usr/local/bin/yarn add bootstrap --save
+  /usr/local/Cellar/node/8.2.1/bin/node /usr/local/bin/yarn add jquery-validation
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -16,15 +16,23 @@ Platform:
 npm manifest: 
   {
     "dependencies": {
-      "antd": "^2.13.1"
+      "antd": "^2.13.1",
+      "express": "^4.15.4",
+      "particles.js": "^2.0.0"
     },
     "devDependencies": {
+      "babel-cli": "^6.26.0",
       "babel-core": "^6.26.0",
       "babel-loader": "^7.1.2",
+      "babel-plugin-transform-runtime": "^6.23.0",
       "babel-preset-es2015": "^6.24.1",
       "babel-preset-react": "^6.24.1",
+      "babel-preset-stage-0": "^6.24.1",
+      "bootstrap": "^4.0.0-beta",
       "css-loader": "^0.28.7",
       "extract-text-webpack-plugin": "^3.0.0",
+      "glob": "^7.1.2",
+      "jquery": "^3.2.1",
       "less": "^2.7.2",
       "less-loader": "^4.0.5",
       "style-loader": "^0.18.2",
@@ -32,8 +40,8 @@ npm manifest:
       "webpack-dev-server": "^2.8.0"
     },
     "scripts": {
-      "build": "webpack",
-      "start": "webpack-dev-server --color"
+      "build": "webpack -p --config './webpack/webpack.prod.babel.js' ",
+      "start": "webpack-dev-server --color --config './webpack/webpack.dev.babel.js'"
     },
     "name": "tianshengjie",
     "description": "blog ====",
