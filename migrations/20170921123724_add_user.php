@@ -19,6 +19,7 @@ class AddUser extends Migration
             `loginTime` int(11) NOT NULL DEFAULT '0' COMMENT '最后登录时间',
             `loginIp` varchar(64) NOT NULL DEFAULT '' COMMENT '最后登录IP',
             `createdIp` varchar(64) NOT NULL DEFAULT '' COMMENT '注册IP',
+            `roles` varchar(256) NOT NULL DEFAULT '|ROLE_USER|' COMMENT '角色',
             `gender` TINYINT UNSIGNED NOT NULL DEFAULT '2' COMMENT '性别 0女性，1男性，2未知',
             `locked` TINYINT UNSIGNED NOT NULL DEFAULT '1' COMMENT '是否验证',
             `delete` TINYINT UNSIGNED NOT NULL DEFAULT '1' COMMENT '是否被删除',
@@ -26,7 +27,7 @@ class AddUser extends Migration
             `updatedTime` INT UNSIGNED NOT NULL DEFAULT '0' COMMENT '最后更新时间',
             PRIMARY KEY (`id`),
             UNIQUE KEY `email` (`email`),
-            UNIQUE KEY `nickname` (`nickname`),
+            UNIQUE KEY `nickname` (`nickname`)
             ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
         ";
         $container = $this->getContainer();
