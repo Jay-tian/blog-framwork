@@ -12,4 +12,9 @@ class ArticleController extends BaseController
     {
         return $this->render('article/detail.html.twig');
     }
+
+    public function createAction(Request $request)
+    {
+        return $this->render('article/create.html.twig');
+    }
 }

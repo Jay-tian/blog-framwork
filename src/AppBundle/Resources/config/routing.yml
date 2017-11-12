@@ -27,3 +27,10 @@ search:
 article_default:
     path: /article/{id}
     defaults: { _controller: AppBundle:Article:detail }
+    requirements:
+        id: \d+
+
+article_create:
+    path: /article/create
+    defaults: { _controller: AppBundle:Article:create }
+
