@@ -14,7 +14,7 @@ class AddUser extends Migration
             `email` varchar(128) NOT NULL COMMENT '用户邮箱',
             `mobile` varchar(32) NOT NULL DEFAULT  '' COMMENT '手机',
             `password` varchar(64) NOT NULL COMMENT '用户密码',
-            `nickname` varchar(64) NOT NULL COMMENT '用户名',
+            `username` varchar(64) NOT NULL COMMENT '用户名',
             `avatar` varchar(1024) NOT NULL DEFAULT '' COMMENT '头像',
             `loginTime` int(11) NOT NULL DEFAULT '0' COMMENT '最后登录时间',
             `loginIp` varchar(64) NOT NULL DEFAULT '' COMMENT '最后登录IP',

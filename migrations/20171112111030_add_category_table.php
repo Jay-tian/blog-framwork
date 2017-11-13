@@ -2,14 +2,14 @@
 
 use Phpmig\Migration\Migration;
 
-class AddCateogyrTable extends Migration
+class AddCategoryTable extends Migration
 {
     /**
      * Do the migration
      */
     public function up()
     {
-        $sql = "CREATE TABLE IF NOT EXISTS `article` (
+        $sql = "CREATE TABLE IF NOT EXISTS `category` (
             `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
             `parent_Id` int(11) NOT NULL COMMENT '父Id',
             `name` varchar(255) not null comment '名称',

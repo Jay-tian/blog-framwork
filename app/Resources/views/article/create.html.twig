@@ -1,10 +1,14 @@
 {% extends 'layout.html.twig' %}
 {% import "macro.html.twig" as macroTool %}
-
+{% do script(['article/index.js']) %}
+{% do css(['article/index.css']) %}
 {% block title %}
     标题-首页
 {% endblock %}
 
 {% block body %}
     {% include 'default/header.html.twig' %}
+     <div class="main container">
+        
+     </div>
 {% endblock %}
