@@ -3,5 +3,5 @@ import $ from 'jquery';
 
 import validation from 'jquery-validation';
 
-window.$ = $;
+window.jQuery = window.$ =  $;
 window.validation = validation;

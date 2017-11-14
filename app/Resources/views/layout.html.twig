@@ -15,8 +15,8 @@
                 个人博客-记录技术-分享生活 
             {% endblock %}
         </title>
-        {% do script(['main.js','common.js'], 10000) %}        
-        {% do css(['main.css']) %}
+        {% do script(['dist/main.js'], 10000) %}        
+        {% do css(['dist/main.css']) %}
         {% include 'webpack-load/load-css.html.twig' %}
     </head>
     <body class="{{ bodyClass|default() }}">
