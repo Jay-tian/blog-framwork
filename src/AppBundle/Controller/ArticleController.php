@@ -15,6 +15,9 @@ class ArticleController extends BaseController
 
     public function createAction(Request $request)
     {
+        if ('POST' === $request->getMethod()) {
+            
+        }
         return $this->render('article/create.html.twig');
     }
 }
