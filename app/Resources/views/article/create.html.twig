@@ -9,11 +9,13 @@
 {% block body %}
     {% include 'default/header.html.twig' %}
     <div class="article-create">
-        <div id="editormd">
-            <textarea id="editormd" class="editormd" name="editormd" style="display:none;">
-            <div>asdfads<div>
-            <h1></h1>
-            </textarea>
-        </div>
+        <from action="{{ path('article_create') }}" method="POST">
+            <div class="form-group">
+                <input name="title" class="title" placeholder="标题">
+            </div>
+            <div id="editormd">
+                <textarea id="editormd" class="editormd" name="content" style="display:none;"></textarea>
+            </div>
+        </from>
     </div>
 {% endblock %}
