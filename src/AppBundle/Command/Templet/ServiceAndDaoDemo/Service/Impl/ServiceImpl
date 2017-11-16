@@ -1,0 +1,20 @@
+<?php
+
+namespace Biz\{{name}}\Service\Impl;
+
+use Biz\BaseService;
+use Biz\{{name}}\Service\{{name}}Service;
+use Codeages\Biz\Framework\Util\ArrayToolkit;
+
+class {{name}}ServiceImpl extends BaseService implements {{name}}Service
+{
+    public function get{{name}}($id, $lock = false)
+    {
+        $this->get{{name}}Dao()->get($id, array('lock'=>$lock));
+    }
+
+    protected function get{{name}}Dao()
+    {
+        return $this->biz->dao('{{name}}:{{name}}Dao');
+    }
+}

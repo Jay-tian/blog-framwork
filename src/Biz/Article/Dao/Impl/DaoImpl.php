@@ -1,17 +1,12 @@
 <?php
 
-namespace Biz\User\Dao\Impl;
+namespace Biz\Article\Dao\Impl;
 
 use Codeages\Biz\Framework\Dao\GeneralDaoInterface;
 
-class UserDaoImpl extends \Codeages\Biz\Framework\Dao\GeneralDaoImpl
+class ArticleDaoImpl extends \Codeages\Biz\Framework\Dao\GeneralDaoImpl
 {
-    protected $table = 'user';
-
-    public function getUserByUserName($username)
-    {
-        return $this->getByFields(array('username' => $username));
-    }
+    protected $table = 'Article';
 
     public function declares()
     {

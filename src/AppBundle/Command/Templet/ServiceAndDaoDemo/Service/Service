@@ -1,0 +1,10 @@
+<?php
+
+namespace Biz\{{name}}\Service;
+
+interface {{name}}Service
+{
+    public function get{{name}}($id, $lock = false);
+
+    public function update{{name}}($id, $fields);
+}

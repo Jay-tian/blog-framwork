@@ -24,9 +24,44 @@ class BuildServiceAndDaoCommand extends BaseCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $biz = $this->getBiz();
-        $argument = $input->getArgument('name');
+        $name = $input->getArgument('name');
         $output->writeln('开始创建');
         $rootDir = $biz['root_directory'];
+        $targetDir = $rootDir.'src/Biz/'.$name;
+        $fileSystem = new Filesystem();
+
+        $this->mkdirTargetDir($fileSystem,$targetDir);
+        $this->copeFiles($fileSystem, $targetDir, $rootDir);
+        $this->replaceKey($fileSystem, $targetDir, $name);
+
         $output->writeln('创建成功');
     }
+
+    private function mkdirTargetDir($fileSystem, $targetDir)
+    {
+        $fileSystem->mkdir($targetDir);
+    }
+
+    private function copeFiles($fileSystem, $targetDir, $rootDir)
+    {
+        $fileSystem->mirror($rootDir.'src/AppBundle/Command/Templet/ServiceAndDaoDemo/', $targetDir, null, array('override' => true, 'delete' => true));
+    }
+
+    private function replaceKey($fileSystem, $targetDir, $name)
+    {
+        $addresses = array(
+            'Service/Service',
+            'Service/Impl/ServiceImpl',
+            'Dao/Dao',
+            'Dao/Impl/DaoImpl',
+        );
+
+        foreach($addresses as $address) {
+            $data = file_get_contents($targetDir.'/'.$address);
+            $data = str_replace('{{name}}', $name, $data);
+            $fileSystem->remove($targetDir.'/'.$address);
+            file_put_contents($targetDir.'/'.$address.'.php', $data);
+        }
+    }
+
 }

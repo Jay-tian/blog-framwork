@@ -1,0 +1,9 @@
+<?php
+
+namespace Biz\{{name}}\Dao;
+
+use Codeages\Biz\Framework\Dao\GeneralDaoInterface;
+
+interface {{name}}Dao extends GeneralDaoInterface
+{
+}

@@ -1,0 +1,24 @@
+<?php
+
+namespace Biz\{{name}}\Dao\Impl;
+
+use Codeages\Biz\Framework\Dao\GeneralDaoInterface;
+
+class {{name}}DaoImpl extends \Codeages\Biz\Framework\Dao\GeneralDaoImpl
+{
+    protected $table = '{{name}}';
+
+    public function declares()
+    {
+        return array(
+            'serializes' => array(
+            ),
+            'orderbys' => array(
+                'id'
+            ),
+            'timestamps' => array('createdTime', 'updatedTime'),
+            'conditions' => array()
+        );
+    }
+}
+
