@@ -1,12 +1,12 @@
 <?php
 
-namespace Biz\{{name}}\Dao\Impl;
+namespace Biz\Article\Dao\Impl;
 
 use Codeages\Biz\Framework\Dao\GeneralDaoInterface;
 
-class {{name}}DaoImpl extends \Codeages\Biz\Framework\Dao\GeneralDaoImpl
+class ArticleDaoImpl extends \Codeages\Biz\Framework\Dao\GeneralDaoImpl
 {
-    protected $table = '{{name}}';
+    protected $table = 'Article';
 
     public function findByIds($ids)
     {

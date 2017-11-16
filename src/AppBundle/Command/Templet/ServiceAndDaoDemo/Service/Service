@@ -7,4 +7,10 @@ interface {{name}}Service
     public function get{{name}}($id, $lock = false);
 
     public function update{{name}}($id, $fields);
+
+    public function find{{name}}ByIds($ids);
+
+    public function search{{name}}s($conditions, $orders, $start, $limit);
+
+    public function count{{name}}($conditions);
 }

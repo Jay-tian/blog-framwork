@@ -50,17 +50,17 @@ class BuildServiceAndDaoCommand extends BaseCommand
     private function replaceKey($fileSystem, $targetDir, $name)
     {
         $addresses = array(
-            'Service/Service',
-            'Service/Impl/ServiceImpl',
-            'Dao/Dao',
-            'Dao/Impl/DaoImpl',
+            'Service/Service' => "Service/{$name}Service.php",
+            'Service/Impl/ServiceImpl' => "Service/Impl/{$name}ServiceImpl.php",
+            'Dao/Dao' => "Dao/{$name}Dao.php",
+            'Dao/Impl/DaoImpl' => "Dao/Impl/{$name}DaoImpl.php",
         );
 
-        foreach($addresses as $address) {
-            $data = file_get_contents($targetDir.'/'.$address);
+        foreach($addresses as $key => $address) {
+            $data = file_get_contents($targetDir.'/'.$key);
             $data = str_replace('{{name}}', $name, $data);
-            $fileSystem->remove($targetDir.'/'.$address);
-            file_put_contents($targetDir.'/'.$address.'.php', $data);
+            $fileSystem->remove($targetDir.'/'.$key);
+            file_put_contents($targetDir.'/'.$address, $data);
         }
     }
 

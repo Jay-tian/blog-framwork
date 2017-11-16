@@ -21,7 +21,7 @@ class AddArticleTable extends Migration
             `content` text not null COMMENT '内容',
             `recommend` int(11) not null default 0 COMMENT '是否推荐',
             `seq` int(11) not null default 0 COMMENT '推荐权重',
-            `created_time` int(11) not null default 0 COMMENT '创建时间',
+            `create_time` int(11) not null default 0 COMMENT '创建时间',
             `update_time` int(11) not null default 0 COMMENT '更新时间',
             PRIMARY KEY (`id`)
             ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;

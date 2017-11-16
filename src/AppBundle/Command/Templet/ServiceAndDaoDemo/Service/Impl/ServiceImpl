@@ -13,6 +13,26 @@ class {{name}}ServiceImpl extends BaseService implements {{name}}Service
         $this->get{{name}}Dao()->get($id, array('lock'=>$lock));
     }
 
+    public function update{{name}}($id, $fields)
+    {
+         $this->get{{name}}Dao()->update($id, $fields);
+    }
+
+    public function find{{name}}ByIds($ids)
+    {
+         $this->get{{name}}Dao()->findByIds($id, $fields);
+    }
+
+    public function search{{name}}s($conditions, $orders, $start, $limit)
+    {
+        $this->get{{name}}Dao()->search($conditions, $orders, $start, $limit);
+    }
+
+    public function count{{name}}($conditions)
+    {
+         $this->get{{name}}Dao()->count($conditions);
+    }
+
     protected function get{{name}}Dao()
     {
         return $this->biz->dao('{{name}}:{{name}}Dao');
