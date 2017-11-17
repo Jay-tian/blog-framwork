@@ -10,10 +10,11 @@ let testEditor = editormd({
 
 document.onkeydown=function(e)   {
     if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-        $.post($form.attr('action'), function(message){
+console.log($form.serialize());
+        $.post($form.attr('action'), $form.serialize(), function(message){
             console.log(message);
         });
-        alert();
+       
         return false;
     }
 }

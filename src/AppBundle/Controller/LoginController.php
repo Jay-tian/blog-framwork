@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Login;
+namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Controller\BaseController;

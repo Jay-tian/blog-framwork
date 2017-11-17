@@ -6,6 +6,8 @@ interface {{name}}Service
 {
     public function get{{name}}($id, $lock = false);
 
+    public function create{{name}}($fields);    
+
     public function update{{name}}($id, $fields);
 
     public function find{{name}}ByIds($ids);

@@ -4,7 +4,7 @@ web_index:
 
 login:
     path:  /login
-    defaults: { _controller: AppBundle:Login/Login:index }
+    defaults: { _controller: AppBundle:Login:index }
 
 index:
     path:  /index
@@ -18,7 +18,7 @@ logout:
 
 register: 
     path:  /register
-    defaults: { _controller: AppBundle:Register/Register:register }
+    defaults: { _controller: AppBundle:Register:register }
 
 search:
     path: /search

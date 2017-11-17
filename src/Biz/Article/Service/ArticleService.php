@@ -6,6 +6,8 @@ interface ArticleService
 {
     public function getArticle($id, $lock = false);
 
+    public function createArticle($fields);    
+
     public function updateArticle($id, $fields);
 
     public function findArticleByIds($ids);
