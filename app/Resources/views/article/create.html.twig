@@ -9,7 +9,7 @@
 {% block body %}
     {% include 'default/header.html.twig' %}
     <div class="article-create">
-        <from action="{{ path('article_create') }}" id="test">
+        <form action="{{ path('article_create') }}" id="article">
             <div class="form-group">
                 <input name="title" id="title" class="title" placeholder="标题" value="">
             </div>
@@ -17,6 +17,6 @@
                 <textarea id="editormd" class="editormd" name="content" style="display:none;"></textarea>
             </div>
             <input name="id" type="hidden" value="">
-        </from>
+        </form>
     </div>
 {% endblock %}

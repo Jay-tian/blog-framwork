@@ -9,6 +9,13 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BaseController extends Controller
 {
+    protected function getUser()
+    {
+        $biz = $this->getBiz();
+
+        return $biz['user'];
+    }
+
     protected function setFlashMessage($level, $message)
     {
         $this->get('session')->getFlashBag()->add($level, $message);

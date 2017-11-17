@@ -21,7 +21,7 @@ class UserDaoImpl extends \Codeages\Biz\Framework\Dao\GeneralDaoImpl
             'orderbys' => array(
                 'id'
             ),
-            'timestamps' => array('createdTime', 'updatedTime'),
+            'timestamps' => array('create_time', 'update_time'),
             'conditions' => array()
         );
     }

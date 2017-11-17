@@ -22,10 +22,13 @@ class UserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {
+        $biz = $this->container->get('biz');
         $user = $this->getUserService()->getUserByUserName($username);  
         $user['roles'] =  array('ROLE_USER');
-        
-        return new User($user);
+        $user = new User($user);
+        $biz['user'] = $user;
+
+        return $user;
     }
 
     public function refreshUser(UserInterface $user)

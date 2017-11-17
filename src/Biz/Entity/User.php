@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="app_users")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User implements UserInterface, \Serializable,  \ArrayAccess
 {
     private $data;
     /**
@@ -49,6 +49,23 @@ class User implements UserInterface, \Serializable
         return empty($this->data[$name]) ? '' : $this->data[$name];
     }
 
+    public function __set($name, $value)
+    {
+        $this->data[$name] = $value;
+
+        return $this;
+    }
+
+    public function __isset($name)
+    {
+        return isset($this->data[$name]);
+    }
+
+    public function __unset($name)
+    {
+        unset($this->data[$name]);
+    }
+
     public function getUsername()
     {
         return $this->__get('username');
@@ -67,6 +84,26 @@ class User implements UserInterface, \Serializable
     public function getRoles()
     {
         return array('ROLE_USER');
+    }
+
+    public function offsetExists($offset)
+    {
+        return $this->__isset($offset);
+    }
+
+    public function offsetGet($offset)
+    {
+        return $this->__get($offset);
+    }
+
+    public function offsetSet($offset, $value)
+    {
+        return $this->__set($offset, $value);
+    }
+
+    public function offsetUnset($offset)
+    {
+        return $this->__unset($offset);
     }
 
     public function eraseCredentials()
