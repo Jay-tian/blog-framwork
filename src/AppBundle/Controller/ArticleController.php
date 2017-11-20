@@ -33,8 +33,7 @@ class ArticleController extends BaseController
                 $article = $this->getArticleService()->updateArticle($fields['id'], $fields);
             }
             
-
-            $this->createJsonResponse($article);
+            return $this->createJsonResponse($article);
         }
         return $this->render('article/create.html.twig');
     }
