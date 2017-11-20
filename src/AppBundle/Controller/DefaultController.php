@@ -14,4 +14,9 @@ class DefaultController extends BaseController
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    public function demoAction(Request $request)
+    {
+        return $this->render('default/demo.html.twig');
+    }
 }

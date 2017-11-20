@@ -34,3 +34,6 @@ article_create:
     path: /article/create
     defaults: { _controller: AppBundle:Article:create }
 
+demo:
+    path: /demo
+    defaults: { _controller: AppBundle:Default:demo }
