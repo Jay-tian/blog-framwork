@@ -19,11 +19,18 @@ class ArticleController extends BaseController
         if ('POST' === $request->getMethod()) {
             $user = $this->getUser();
             $fields = $request->request->all();
-            $fields = ArrayToolkit::parts($fields, array(
+            $requireds = array(
                 'id',
                 'title',
                 'content',
-            ));
+                'content_md',
+            );
+
+            if (!ArrayToolkit::requireds($fields, $requireds, true)) {
+                return $this->createJsonResponse(array('error' => '缺少必要字段！'));
+            }
+
+            $fields = ArrayToolkit::parts($fields, $requireds);
             $fields['user_id'] = $user['id'];
             
             if (empty($fields['id'])) {
