@@ -1,16 +1,21 @@
 class Alert {
     constructor(setting){
-        this.default = {
-            level: success,
-            message: '发生异常',
-            time: 1000,
-        };
-
-        this.setting = Object.assign(this.default, setting);
+        this.body = $('body');
+        this.temp =  $(`<div id="alert" class="alert text-center fixed transition" role="alert"></div>`);
+        this.body.prepend(this.temp);
     }
 
-    show() {
-        let template = ``;
+    show(message, level, time = 1000) {
+        this.temp.text(message).addClass('show alert-' + level);
+        this.hide(time);
+    }
+
+    hide(time){
+        let self = this;
+        clearTimeout(this.hideId);
+        this.hideId = setTimeout(function(){
+            self.temp.removeClass('show');
+        }, time)
     }
 }
 

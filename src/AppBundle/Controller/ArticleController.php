@@ -20,7 +20,6 @@ class ArticleController extends BaseController
             $user = $this->getUser();
             $fields = $request->request->all();
             $requireds = array(
-                'id',
                 'title',
                 'content',
                 'content_md',
@@ -29,7 +28,7 @@ class ArticleController extends BaseController
             if (!ArrayToolkit::requireds($fields, $requireds, true)) {
                 return $this->createJsonResponse(array('error' => '缺少必要字段！'));
             }
-
+            $requireds[] = 'id';
             $fields = ArrayToolkit::parts($fields, $requireds);
             $fields['user_id'] = $user['id'];
             
