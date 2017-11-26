@@ -16,24 +16,20 @@ class ArticleController extends BaseController
 
     public function createAction(Request $request)
     {
+        $user = $this->getUser();
         if ('POST' === $request->getMethod()) {
-            $user = $this->getUser();
             $fields = $request->request->all();
             $requireds = array(
                 'title',
-                'content',
+                'content-html-code',
                 'content_md',
             );
-
             if (!ArrayToolkit::requireds($fields, $requireds, true)) {
                 return $this->createJsonResponse(array('error' => '缺少必要字段！'));
             }
-            $requireds[] = 'id';
-            $fields = ArrayToolkit::parts($fields, $requireds);
-            $fields['user_id'] = $user['id'];
-            
+            $fields = $this->filter($fields);
+
             if (empty($fields['id'])) {
-                unset($fields['id']);
                 $article = $this->getArticleService()->createArticle($fields);
             } else {
                 $article = $this->getArticleService()->updateArticle($fields['id'], $fields);
@@ -42,6 +38,23 @@ class ArticleController extends BaseController
             return $this->createJsonResponse($article);
         }
         return $this->render('article/create.html.twig');
+    }
+
+    private function filter($fields) 
+    {
+        $user = $this->getUser();
+        $fields['content'] = $fields['content-html-code'];
+        $fields['user_id'] = $user['id'];
+        if (empty($fields['id'])) {
+            unset($fields['id']);
+        }
+        return $fields = ArrayToolkit::parts($fields, array(
+            'title',
+            'content',
+            'content_md',
+            'id',
+            'user_id',
+        ));
     }
 
     protected function getArticleService()

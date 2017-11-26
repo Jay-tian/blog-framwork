@@ -13,11 +13,13 @@
             <div class="form-group">
                 <input name="title" id="title" class="title" placeholder="标题" value="">
             </div>
-            <div id="editormd">
-                <textarea id="editormd" class="editormd" name="content_md" style="display:none;"></textarea>
+            <div id="content">
+                <textarea class="editormd" name="content_md" style="display:none;"></textarea>
             </div>
-            <textarea id="editor-content" name="content" class="hide"></textarea>
             <input name="id" type="hidden" id="article-id" value="">
+            <button type="submit" >
+                提交
+            </button>
         </form>
     </div>
 {% endblock %}

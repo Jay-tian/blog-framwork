@@ -3,9 +3,12 @@
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Codeages\Biz\Framework\Provider\DoctrineServiceProvider;
+use Symfony\Component\HttpFoundation\Request;
 
 class AppKernel extends Kernel
 {
+    protected $request;
+
     public function boot()
     {
         parent::boot();
@@ -39,10 +42,28 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
+    public function setRequest(Request $request)
+    {
+        $this->request = $request;
+
+        return $this;
+    }
+
     protected function initializeBiz()
     {
         $biz = $this->getContainer()->get('biz');
         $biz->register(new DoctrineServiceProvider());
+        $this->initUser($biz);
+    }
+
+    private function initUser($biz)
+    {
+        $user = array(
+            'id' => $this->request->getClientIp() ? : '127.0.0.1',
+            'nickname' => '游客',
+        );
+        $currentUser = new \Biz\Entity\User($user);
+        $biz['user'] = $currentUser;
     }
 
     public function getRootDir()
