@@ -11,12 +11,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface, \Serializable,  \ArrayAccess
 {
     private $data;
-    /**
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
      * @ORM\Column(type="string", length=25, unique=true)
@@ -27,11 +21,6 @@ class User implements UserInterface, \Serializable,  \ArrayAccess
      * @ORM\Column(type="string", length=64)
      */
     private $password;
-
-    /**
-     * @ORM\Column(type="string", length=60, unique=true)
-     */
-    private $email;
 
     /**
      * @ORM\Column(name="is_active", type="boolean")
@@ -64,6 +53,11 @@ class User implements UserInterface, \Serializable,  \ArrayAccess
     public function __unset($name)
     {
         unset($this->data[$name]);
+    }
+
+    public function isLogin()
+    {
+        return empty($this->id) ? false : true;
     }
 
     public function getUsername()

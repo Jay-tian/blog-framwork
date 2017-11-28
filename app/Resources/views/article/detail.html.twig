@@ -11,7 +11,7 @@
     <div class="article-main main container">
         <div class="title">
             <h1>
-                第一篇文章
+                {{ article.title }}
             </h1>
             <div class="text-sm text-grey">
                 <span class="mrm">2017年8月19日 19:1:2</span> <span>阅读量： 10222</span>
@@ -41,17 +41,7 @@
             </div>
         </div>
         <div class="content">
-            Sonar简介
-            Sonar是一个用于代码质量管理的开源平台，用于管理源代码的质量，可以从七个维度检测代码质量
-            通过插件形式，可以支持包括java,C#,C/C++,PL/SQL,Cobol,JavaScrip,Groovy等等二十几种编程语言的代码质量管理与检测
-
-            sonarQube能带来什么？
-
-            Developers' Seven Deadly Sins
-            1.糟糕的复杂度分布
-            文件、类、方法等，如果复杂度过高将难以改变，这会使得开发人员难以理解它们，
-            且如果没有自动化的单元测试，对于程序中的任何组件的改变都将可能导致需要全面的回归测试
-
+            {{ article.content|raw }}
         </div>  
         {# <div>
             点赞，喜欢，评论，

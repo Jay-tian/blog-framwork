@@ -11,12 +11,20 @@ class ArticleController extends BaseController
 {
     public function detailAction(Request $request, $id)
     {
-        return $this->render('article/detail.html.twig');
+        $article = $this->getArticleService()->getArticle($id);
+        $user = $this->getUserService()->getUser($article['user_id']);
+        return $this->render('article/detail.html.twig', array(
+            'article' => $article,
+            'user' => $user,
+        ));
     }
 
     public function createAction(Request $request)
     {
         $user = $this->getUser();
+        if (!$user->isLogin()) {
+             throw new \RuntimeException('Not Allowed');
+        }
         if ('POST' === $request->getMethod()) {
             $fields = $request->request->all();
             $requireds = array(
@@ -60,5 +68,10 @@ class ArticleController extends BaseController
     protected function getArticleService()
     {
         return $this->getBiz()->service('Article:ArticleService');
+    }
+
+    protected function getUserService()
+    {
+        return $this->getBiz()->service('User:UserService');
     }
 }
