@@ -16,6 +16,14 @@ class BaseController extends Controller
         return $biz['user'];
     }
 
+    protected function errorPage($message, $status)
+    {
+        //todo 未定义的错误编码时，提示
+        return $this->render("error/error-".$status.".html.twig", array(
+            'message' => $message
+        ));
+    }
+
     protected function setFlashMessage($level, $message)
     {
         $this->get('session')->getFlashBag()->add($level, $message);

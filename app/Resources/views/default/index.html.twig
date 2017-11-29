@@ -8,38 +8,34 @@
 
 {% block body %}
     {% include 'default/header.html.twig' %}
-    <div class="article-main container">
-        <div class="title">
-            <h1>
-                第一篇文章
-            </h1>
+    <div class="main container">
+        <div class="col-8">
+            <div class="article-list">
+                {% for article in articles %}
+                    <div class="item">
+                        <div class="title text-overflow">
+                            <a href="{{ path('article_detail', {id: article.id}) }}">{{ article.title }}</a>
+                        </div>
+                        <div class="meta">
+                            <span><i class="iconfont blog-iconfontanalysiscopyepsfuben4"></i>日期:{{ article.create_time|date('y-m-d H:i') }}</span>
+                            <span>浏览量</span>
+                            <span>喜欢数</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>        
+
         </div>
-        <div class="author">
-            <div>
-                <img src="http://avatar.csdn.net/7/5/B/1_hunterno4.jpg" class="avatar_pic">
-                <span>田胜杰</span>
-                <span>关注</span>
+        <div class="col-4">
+            <div class="music">
+            
             </div>
-            <ol>
-                <li>
-                    文章数：<br>
-                    32
-                </li>
-                <li>
-                    粉丝：<br>
-                    32
-                </li>
-                <li>
-                    喜欢：<br>
-                    32
-                </li>
-            </ol>
-        </div>
-        <div class="content">
-            内容
-        </div>  
-        <div>
-            点赞，喜欢，评论，
+            <div class="motto">
+            
+            </div>
+            <div class="recommand">
+            
+            </div>
         </div>
     </div>
 {% endblock %}

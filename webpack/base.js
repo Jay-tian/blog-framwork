@@ -20,9 +20,9 @@ let config = {
     rootPath:root,
     entries: entries,
     output: {
-        path: root + "/web/dist", 
+        path: root + "/web/dist/", 
         filename: "[name].js",
-        publicPath: "http://localhost:3032/dist",
+        publicPath: "dist/",
     },
     loaders: loader,
     plugins: plugin,

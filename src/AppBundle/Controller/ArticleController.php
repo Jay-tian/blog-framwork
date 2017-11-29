@@ -12,6 +12,9 @@ class ArticleController extends BaseController
     public function detailAction(Request $request, $id)
     {
         $article = $this->getArticleService()->getArticle($id);
+        if (empty($article)) {
+            return $this->errorPage('未找到该文章', 404);
+        }
         $user = $this->getUserService()->getUser($article['user_id']);
         return $this->render('article/detail.html.twig', array(
             'article' => $article,

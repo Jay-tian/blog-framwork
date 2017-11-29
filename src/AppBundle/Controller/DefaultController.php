@@ -10,13 +10,21 @@ class DefaultController extends BaseController
 {
     public function indexAction(Request $request)
     {
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        $articles = $this->getArticleService()->searchArticles(array(), array(), 0, \PHP_INT_MAX);
+        return $this->render('default/index.html.twig',
+            array(
+                'articles' => $articles,
+            )    
+        );
     }
 
     public function demoAction(Request $request)
     {
         return $this->render('default/demo.html.twig');
+    }
+
+    protected function getArticleService()
+    {
+        return $this->getBiz()->service('Article:ArticleService');
     }
 }

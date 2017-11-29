@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/8.2.1/bin/node /usr/local/bin/yarn add --dev editor.md
+  /usr/local/Cellar/node/8.2.1/bin/node /usr/local/bin/yarn add file-loader
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -31,6 +31,7 @@ npm manifest:
       "babel-preset-stage-0": "^6.24.1",
       "bootstrap": "^4.0.0-beta",
       "css-loader": "^0.28.7",
+      "editor.md": "^1.5.0",
       "extract-text-webpack-plugin": "^3.0.0",
       "glob": "^7.1.2",
       "jquery": "^3.2.1",
@@ -1814,6 +1815,10 @@ Lockfile:
     resolved "http://registry.npm.taobao.org/ecc-jsbn/download/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
     dependencies:
       jsbn "~0.1.0"
+  
+  editor.md@^1.5.0:
+    version "1.5.0"
+    resolved "http://registry.npm.taobao.org/editor.md/download/editor.md-1.5.0.tgz#6fe636a88a39b85613f53eee6ecb7b7348ab23bf"
   
   ee-first@1.1.1:
     version "1.1.1"
@@ -5266,4 +5271,4 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/private/var/www/blog/node_modules/.bin/acorn'
+  Error: EACCES: permission denied, unlink '/private/var/www/blog/node_modules/.bin/ansi-html'

@@ -17,10 +17,18 @@ let loader = [
             plugins: ['transform-runtime']
         }
     },
-    { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-    { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
-    { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
-    { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
+    {  
+        test:/\.(woff)|(svg)|(eot)|(ttf)/,  
+        use: [  
+            {  
+                loader: "file-loader",  
+                options: {  
+                    name:"[hash:8]",  
+                    outputPath:"iconfont/"  
+                }  
+            }  
+        ]  
+    }, 
 ];
 
 export default loader;

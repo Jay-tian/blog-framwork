@@ -24,7 +24,7 @@ search:
     path: /search
     defaults: { _controller: AppBundle:Default:index }
 
-article_default:
+article_detail:
     path: /article/{id}
     defaults: { _controller: AppBundle:Article:detail }
     requirements:
