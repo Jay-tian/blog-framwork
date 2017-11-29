@@ -9,7 +9,7 @@
 {% block body %}
     {% include 'default/header.html.twig' %}
     <div class="main container">
-        <div class="col-9">
+        <div class="col-12">
             <div class="article-list">
                 {% for article in articles %}
                     <div class="item">
@@ -17,7 +17,7 @@
                             <a href="{{ path('article_detail', {id: article.id}) }}">{{ article.title }}</a>
                         </div>
                         <div class="summary">
-                            {{ article.content|filter_html|substr(200) }}
+                            {{ article.content|filter_html|substr(150) }}
                         </div>
                         <div class="meta">
                             <span><i class="iconfont blog-time"></i>{{ article.create_time|date('Y年m月d日 H:i') }}</span>
@@ -29,7 +29,7 @@
             </div>        
 
         </div>
-        <div class="col-3">
+        {# <div class="col-3">
             <div class="music">
             
             </div>
@@ -39,6 +39,6 @@
             <div class="recommand">
             
             </div>
-        </div>
+        </div> #}
     </div>
 {% endblock %}
