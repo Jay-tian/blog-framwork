@@ -9,4 +9,10 @@
 
 9. todo
 10. 阅读次数
-11. iconfont 引入
+11. iconfont 引入 (ok)
+
+12. 个人摸块（头像，我的管理：文章列表，个人设置）
+13. 后台管理页面
+14. php和js，格式校验
+15. 事件机制
+16. serialize,json_encode

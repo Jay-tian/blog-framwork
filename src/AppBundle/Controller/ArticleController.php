@@ -16,6 +16,7 @@ class ArticleController extends BaseController
             return $this->errorPage('未找到该文章', 404);
         }
         $user = $this->getUserService()->getUser($article['user_id']);
+        
         return $this->render('article/detail.html.twig', array(
             'article' => $article,
             'user' => $user,
@@ -28,6 +29,7 @@ class ArticleController extends BaseController
         if (!$user->isLogin()) {
              throw new \RuntimeException('Not Allowed');
         }
+
         if ('POST' === $request->getMethod()) {
             $fields = $request->request->all();
             $requireds = array(
@@ -59,6 +61,7 @@ class ArticleController extends BaseController
         if (empty($fields['id'])) {
             unset($fields['id']);
         }
+
         return $fields = ArrayToolkit::parts($fields, array(
             'title',
             'content',
