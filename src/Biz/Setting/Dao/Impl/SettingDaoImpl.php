@@ -20,7 +20,7 @@ class SettingDaoImpl extends \Codeages\Biz\Framework\Dao\GeneralDaoImpl
     public function declares()
     {
         return array(
-            'serializes' => array('data' => 'php'),
+            'serializes' => array('value' => 'php'),
             'orderbys' => array(
                 'id',
                 'create_time',

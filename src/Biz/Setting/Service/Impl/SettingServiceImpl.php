@@ -38,6 +38,16 @@ class SettingServiceImpl extends BaseService implements SettingService
          return $this->getSettingDao()->count($conditions);
     }
 
+    public function init()
+    {
+        return $this->createSetting(array(
+            'name' => 'article',
+            'value' => array(
+                'ip_limit' => 20,
+            )
+        ));
+    }
+
     protected function getSettingDao()
     {
         return $this->biz->dao('Setting:SettingDao');

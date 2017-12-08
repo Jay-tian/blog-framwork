@@ -24,7 +24,6 @@ class UserProvider implements UserProviderInterface
     {
         $biz = $this->container->get('biz');
         $user = $this->getUserService()->getUserByUserName($username);  
-        $user['roles'] =  array('ROLE_USER');
         $user = new User($user);
         $biz['user'] = $user;
 

@@ -40,6 +40,9 @@ class User implements UserInterface, \Serializable,  \ArrayAccess
 
     public function __set($name, $value)
     {
+        if (in_array($name, array('id', 'roles'))) {
+            return $this;
+        }
         $this->data[$name] = $value;
 
         return $this;
@@ -77,7 +80,7 @@ class User implements UserInterface, \Serializable,  \ArrayAccess
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return $this->data['roles'];
     }
 
     public function offsetExists($offset)

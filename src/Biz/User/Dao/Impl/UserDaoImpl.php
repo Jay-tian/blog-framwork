@@ -17,6 +17,7 @@ class UserDaoImpl extends \Codeages\Biz\Framework\Dao\GeneralDaoImpl
     {
         return array(
             'serializes' => array(
+                'roles' => 'delimiter',
             ),
             'orderbys' => array(
                 'id'
